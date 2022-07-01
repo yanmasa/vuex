@@ -4,6 +4,8 @@
       <div id="nav">
         <router-link to="/">Home</router-link> | 
         <router-link to="/about">About</router-link>
+        <br>
+      <v-btn @click="setLogin">ログイン名表示</v-btn>
       </div>
       <router-view/>
       {{ $store.state.count }}
@@ -24,7 +26,7 @@
 </template>
 
 <script>
-
+import {mapActions} from 'vuex';
 export default {
   name: 'App',
 
@@ -32,6 +34,12 @@ export default {
     id: ""
     //
   }),
+  methods:{
+    ...mapActions('auth', ['setLoginUser']),
+    setLogin(){
+      this.setLoginUser({name: '大谷'})
+    }
+  },
   computed:{
     visibleUsers(){
       return this.$store.getters.visibleUsers
