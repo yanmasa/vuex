@@ -1,5 +1,19 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div>
+    <v-btn @click="minusCount">-</v-btn>
   </div>
 </template>
+
+<script>
+export default {
+  methods:{
+    minusCount(){
+      this.$store.commit('minus')
+    }
+  }
+}
+</script>
+
+<style>
+
+</style>
